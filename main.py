@@ -70,9 +70,9 @@ if __name__ == '__main__':
     # open archive named data.in in read mode
     archive = open('data.in', 'r')
     data = archive.read()
-    print(data)
+    # print(data)
 
     lexer = LexerAnalyzer()
     for tok in lexer.tokenize(data):     
-        print('type=%r, value=%r lineno=%r' % (tok.type, tok.value, tok.lineno))
+        print('type=%r, value=%r lineno=%r index=%r' % (tok.type, tok.value, tok.lineno, tok.index))
     archive.close()
