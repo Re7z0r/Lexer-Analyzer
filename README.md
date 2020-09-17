@@ -1,5 +1,5 @@
 # LexerAnalyzer-MiniJava
-Desenvolvimento de um Analisador Léxico em Python com SLY
+Desenvolvimento de um Analisador Léxico em Python com SLY para a linguagem MiniJava.
 
 -------- INSTALAÇÃO NO LINUX --------
 
