@@ -4,12 +4,8 @@ class Factorial{
     }
 }
 
-&&
-==
-=
-
+&&, ==, =
 // comentario
-
 /* bloco
     de
 comentario
