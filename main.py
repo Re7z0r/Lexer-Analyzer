@@ -2,11 +2,13 @@ from sly import Lexer
 
 class LexerAnalyzer(Lexer):
     # Set of token names. This is always required 
-    tokens = { ID, AND, ASSIGN, COLON, COMMENT, LCOMMENTBLOCK, DIVIDE, DOT, EQUAL, LBRACE, LBRACK, 
+    tokens = { ID, AND, ASSIGN, COLON, DIVIDE, DOT, EQUAL, LBRACE, LBRACK, 
         LESS, LPAREN, MINUS, NOT, NUMBER, PLUS, RBRACK, RBRACE, 
-        RCOMMENTBLOCK, RPAREN, SCOLON, TIMES, 
+        RPAREN, SCOLON, TIMES, 
         BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, MAIN, 
         NEW, PUBLIC, RETURN, STATIC, STRING, WRITE, THIS, TRUE, VOID, WHILE, WRITE }
+
+    # COMMENT, LCOMMENTBLOCK, RCOMMENTBLOCK,
     
     # String containing ignored characters between tokens
     ignore = r' \t\n'    
