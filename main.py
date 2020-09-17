@@ -2,38 +2,41 @@ from sly import Lexer
 
 class LexerAnalyzer(Lexer):
     # Set of token names. This is always required 
-    tokens = { ID, AND, ASSIGN, COLON, DIVIDE, DOT, EQUAL, LBRACE, LBRACK, LESS, 
-        LPAREN, MINUS, NOT, NUMBER, PLUS, RBRACK, RBRACE, RPAREN, SCOLON, TIMES, 
+    tokens = { ID, AND, ASSIGN, COLON, COMMENT, LCOMMENTBLOCK, DIVIDE, DOT, EQUAL, LBRACE, LBRACK, 
+        LESS, LPAREN, MINUS, NOT, NUMBER, PLUS, RBRACK, RBRACE, 
+        RCOMMENTBLOCK, RPAREN, SCOLON, TIMES, 
         BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, MAIN, 
         NEW, PUBLIC, RETURN, STATIC, STRING, WRITE, THIS, TRUE, VOID, WHILE, WRITE }
     
     # String containing ignored characters between tokens
     ignore = r' \t\n'    
-    ignore_comment = r'\#.*'
 
-    # Regular expression rules for tokens in alphabetical order
+    # Regular expression rules for tokens in Priority order
     ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
-    AND     = r'&&'
-    ASSIGN  = r'='
-    COLON   = r','
-    DIVIDE  = r'/'
-    DOT     = r'\.'
-    EQUAL   = r'='
-    LBRACE  = r'\{'  
-    LBRACK  = r'\['
-    LESS    = r'<'
-    LPAREN  = r'\('
-    MINUS   = r'-'
-    NOT     = r'!'
     NUMBER  = r'\d+'
-    PLUS    = r'\+'
-    RBRACK  = r'\]'
-    RBRACE  = r'\}'
-    RPAREN  = r'\)'
+    DOT     = r'\.'
+    COLON   = r','
     SCOLON  = r';'  
+    COMMENT = r'\/\/'       # //
+    LCOMMENTBLOCK = r'\/\*' # /*
+    RCOMMENTBLOCK = r'\*\/' # *\
+    LBRACE  = r'\{'  
+    RBRACE  = r'\}'
+    LBRACK  = r'\['
+    RBRACK  = r'\]'
+    LPAREN  = r'\('
+    RPAREN  = r'\)'
     TIMES   = r'\*'
+    DIVIDE  = r'/'
+    PLUS    = r'\+'
+    MINUS   = r'-'
+    EQUAL   = r'=='
+    ASSIGN  = r'='
+    NOT     = r'!'
+    LESS    = r'<'
+    AND     = r'&&'
 
-    # Words reserved in alphabetical order by type
+    # Words reserved in Alphabetical order by type
     ID['boolean']   = BOOLEAN
     ID['class']     = CLASS
     ID['else']      = ELSE

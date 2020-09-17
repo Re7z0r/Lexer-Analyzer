@@ -4,6 +4,17 @@ class Factorial{
     }
 }
 
+&&
+==
+=
+
+// comentario
+
+/* bloco
+    de
+comentario
+*/
+
 class Fac {
     public int ComputeFac(int num){
         int num_aux ;
