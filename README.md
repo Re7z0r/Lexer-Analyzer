@@ -1,24 +1,28 @@
 # LexerAnalyzer-MiniJava
 Desenvolvimento de um Analisador Léxico em Python com SLY para a linguagem MiniJava.
 
--------- INSTALAÇÃO NO LINUX --------
-
+## Instalação passo a passo (Linux)
 1. Instalando o python3
+```bash
     sudo apt-get update
     sudo apt-get install python3
-
+```
 2. Instalando o pacote pip
+```bash
     sudo apt-get install python3-pip
-
+```
 3. Instalando o SLY
+```bash
     pip3 install sly 
+```    
+
+## Execução
+```bash
+    python3 main.py
+```
     
-
--------- EXECUÇÃO ---------
-Execução por linha de comando: python3 main.py
-
-
--------- ARQUIVOS ---------
-data.in = arquivo de dados para fazer o teste do Analisador Lexico onde irá conter as entradas.
-
-main.py = arquivo principal do Analisador Léxico.
+## Arquivos
+### main.py
+Arquivo principal do Analisador Léxico.
+### data.in
+Programa exemplo contendo os principais tokens para testar o Analisador Léxico.
