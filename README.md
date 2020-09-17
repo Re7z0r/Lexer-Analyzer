@@ -20,7 +20,8 @@ Desenvolvimento de um Analisador Léxico em Python com SLY para a linguagem Mini
 ```bash
     python3 main.py
 ```
-    
+![main.py](https://pasteboard.co/Jrxm1jv.png)
+
 ## Arquivos
 ### main.py
 Arquivo principal do Analisador Léxico.
