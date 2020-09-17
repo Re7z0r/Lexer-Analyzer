@@ -10,6 +10,8 @@ class LexerAnalyzer(Lexer):
     
     # String containing ignored characters between tokens
     ignore = r' \t\n'    
+    ignore_comment = r'\/\/.*'
+    ignore_block_comment = r'\/\*[^\*\/]+\*\/'
 
     # Regular expression rules for tokens in Priority order
     ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
@@ -17,9 +19,9 @@ class LexerAnalyzer(Lexer):
     DOT     = r'\.'
     COLON   = r','
     SCOLON  = r';'  
-    COMMENT = r'\/\/'       # //
-    LCOMMENTBLOCK = r'\/\*' # /*
-    RCOMMENTBLOCK = r'\*\/' # *\
+    # COMMENT = r'\/\/'       # //
+    # LCOMMENTBLOCK = r'\/\*' # /*
+    # RCOMMENTBLOCK = r'\*\/' # *\
     LBRACE  = r'\{'  
     RBRACE  = r'\}'
     LBRACK  = r'\['
