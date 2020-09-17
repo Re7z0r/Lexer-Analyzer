@@ -22,8 +22,3 @@ Execução por linha de comando: python3 main.py
 data.in = arquivo de dados para fazer o teste do Analisador Lexico onde irá conter as entradas.
 
 main.py = arquivo principal do Analisador Léxico.
-
-tokens.data = identificação dos tokens e palavras reservadas do MiniJava (apenas para consulta)
-
-
-
