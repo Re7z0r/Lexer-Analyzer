@@ -41,24 +41,31 @@ class LexerAnalyzer(Lexer):
     AND     = r'&&'
 
     # Words reserved in Alphabetical order by type
-    ID['boolean']   = BOOLEAN
     ID['class']     = CLASS
-    ID['else']      = ELSE
-    ID['extends']   = EXTENDS
-    ID['false']     = FALSE
-    ID['if']        = IF
-    ID['int']       = INT
-    ID['length']    = LENGTH
-    ID['main']      = MAIN
-    ID['new']       = NEW
     ID['public']    = PUBLIC
-    ID['return']    = RETURN
     ID['static']    = STATIC
-    ID['string']    = STRING
-    ID['this']      = THIS
-    ID['true']      = TRUE
     ID['void']      = VOID
+    ID['main']      = MAIN
+    ID['String']    = STRING
+
+    ID['extends']   = EXTENDS
+    ID['return']    = RETURN
+
+    ID['if']        = IF
+    ID['else']      = ELSE
     ID['while']     = WHILE
+
+    ID['true']      = TRUE
+    ID['false']     = FALSE
+
+    ID['this']      = THIS
+    ID['new']       = NEW
+
+    ID['int']       = INT
+    ID['boolean']   = BOOLEAN
+
+    ID['length']    = LENGTH
+
     ID['System.out.println']    = WRITE
 
     # Line number tracking
