@@ -12,7 +12,8 @@ class LexerAnalyzer(Lexer):
     ignore_comment = '\/\/.*'
     ignore_block_comment = '\/\*[^\*\/]+\*\/'
 
-    # Regular expression rules for tokens in Priority order
+    # Regular expression rules for tokens in Priority order    
+    WRITE   = r'System\.out\.println'
     ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
     NUMBER  = r'\d+'
     DOT     = r'\.'
@@ -59,8 +60,6 @@ class LexerAnalyzer(Lexer):
     ID['boolean']   = BOOLEAN
 
     ID['length']    = LENGTH
-
-    ID['System.out.println']    = WRITE
 
 
     # Line number tracking
