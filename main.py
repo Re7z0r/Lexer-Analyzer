@@ -13,7 +13,7 @@ class LexerAnalyzer(Lexer):
     ignore_block_comment = r'\/\*[^\*\/]+\*\/'
 
     # Regular expression rules for tokens in Priority order
-    ID      = r'[a-zA-Z_][a-zA-Z0-9_.]*'
+    ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
     NUMBER  = r'\d+'
     DOT     = r'\.'
     COLON   = r','

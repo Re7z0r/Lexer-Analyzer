@@ -1,4 +1,4 @@
-, ; { } [ ] ( ) * / + - == = ! < &&
+, . ; { } [ ] ( ) * / + - == = ! < &&
 class public static void main String extends return if else while
 true false this new int boolean length System.out.println
 
