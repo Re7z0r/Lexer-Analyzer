@@ -8,9 +8,9 @@ class LexerAnalyzer(Lexer):
         PUBLIC, RETURN, STATIC, STRING, WRITE, THIS, TRUE, VOID, WHILE, WRITE }
 
     # String containing ignored characters between tokens
-    ignore_space = r' '    
-    ignore_comment = r'\/\/.*'
-    ignore_block_comment = r'\/\*[^\*\/]+\*\/'
+    ignore = ' \t\n'
+    ignore_comment = '\/\/.*'
+    ignore_block_comment = '\/\*[^\*\/]+\*\/'
 
     # Regular expression rules for tokens in Priority order
     ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
