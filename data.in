@@ -1,15 +1,19 @@
+, ; { } [ ] ( ) * / + - == = ! < &&
+class public static void main String extends return if else while
+true false this new int boolean length System.out.println
+
+////////// comentario
+
+/* bloco
+    de
+comentario */
+
+
 class Factorial{
     public static void main(String[] a){
         System.out.println(new Fac().ComputeFac(10));
     }
 }
-
-&&, ==, =
-// comentario
-/* bloco
-    de
-comentario
-*/
 
 class Fac {
     public int ComputeFac(int num){
