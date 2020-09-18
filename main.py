@@ -2,13 +2,13 @@ from sly import Lexer
 
 class LexerAnalyzer(Lexer):
     # Set of token names. This is always required 
-    tokens = { ID, AND, ASSIGN, COLON, DIVIDE, DOT, EQUAL, LBRACE, LBRACK, 
+    tokens = { AND, ASSIGN, COLON, DIVIDE, DOT, EQUAL, ID, LBRACE, LBRACK, 
         LESS, LPAREN, MINUS, NOT, NUMBER, PLUS, RBRACK, RBRACE, RPAREN, SCOLON, TIMES, 
         BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, 
         PUBLIC, RETURN, STATIC, STRING, WRITE, THIS, TRUE, VOID, WHILE, WRITE }
 
     # String containing ignored characters between tokens
-    ignore = r' \t\n'    
+    ignore_space = r' '    
     ignore_comment = r'\/\/.*'
     ignore_block_comment = r'\/\*[^\*\/]+\*\/'
 
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     # open file named data.in in read mode
     file = open('data.in', 'r')
     data = file.read()
-    print(data)
+    # print(data)
 
     lexer = LexerAnalyzer()
     for tok in lexer.tokenize(data):     
