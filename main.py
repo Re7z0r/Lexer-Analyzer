@@ -1,83 +1,81 @@
 from sly import Lexer
 
 class LexerAnalyzer(Lexer):
+    # tokens por ORDEM ALFABETICA
+    tokens = { AND, BOOLEAN, CLASS, COLON, DOT, ELSE, EQUAL, EXTENDS, FALSE, ID, IF, INT, KEYWORD, LENGTH, 
+        MAIN, NEW, LBRACE, LBRACK, LESS, LPAREN, MINUS,  NEW, NOT, NUM, PLUS, PUBLIC, RBRACK, RETURN, 
+        RBRACE, RPAREN, SCOLON, STATIC, STRING, THIS, TIMES, TRUE, VOID, WHILE, WRITE }
 
-    # Lista de variaveis para a lib Lex.
-    tokens = { AND, COLON, DIVIDE, DOT, EQUAL, KEYWORD, ID, LBRACE, LBRACK, 
-        LESS, LPAREN, MINUS, NOT, NUM, PLUS, RBRACK, RBRACE, RPAREN, SCOLON, TIMES, WRITE }
+    # keywords por ORDEM ALFABETICA
+    keywords = { BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, PUBLIC, RETURN, STATIC, 
+        STRING, THIS, TRUE, VOID, WHILE }
 
-    # Expressões regulares do texto que deve ser ignorado
-    ignore = r' \t\n'
-    ignore_comment = r'\/\/.*'
-    ignore_block_comment = r'\/\*[^\*\/]+\*\/'
+    # espaço, tabulação, comentário e bloco de comentários ignorados
+    ignore = ' \t'
+    ignore_comment = '\/\/.*'
+    ignore_block_comment = '\/\*[^\*\/]+\*\/'
 
-    # Expressões regulares dos tokens na ordem de prioridade
-    WRITE   = r'System\.out\.println'
+    # átomos que representam as palavras reservadas da linguagem por ORDEM ALFABETICA
+    ID['boolean']   = BOOLEAN
+    ID['class']     = CLASS
+    ID['else']      = ELSE
+    ID['extends']   = EXTENDS
+    ID['false']     = FALSE
+    ID['if']        = IF
+    ID['int']       = INT
+    ID['length']    = LENGTH
+    ID['main']      = MAIN
+    ID['new']       = NEW
+    ID['public']    = PUBLIC
+    ID['return']    = RETURN
+    ID['static']    = STATIC
+    ID['String']    = STRING
+    ID['this']      = THIS
+    ID['true']      = TRUE
+    ID['void']      = VOID
+    ID['while']     = WHILE    
+    WRITE           = r'System\.out\.println'
+
+    # átomos que representam símbolos da linguagem por ORDEM ALFABETICA
+    AND     = r'\&\&'
+    COLON   = r'\,'
     DOT     = r'\.'
-    COLON   = r','
-    SCOLON  = r';'
-    LBRACE  = r'\{'  
-    RBRACE  = r'\}'
+    EQUAL   = r'\='
+    LBRACE  = r'\{' 
     LBRACK  = r'\['
-    RBRACK  = r'\]'
+    LESS    = r'\<' 
     LPAREN  = r'\('
-    RPAREN  = r'\)'
-    TIMES   = r'\*'
-    DIVIDE  = r'/'
+    MINUS   = r'\-'
+    NOT     = r'\!'
     PLUS    = r'\+'
-    MINUS   = r'-'
-    EQUAL   = r'='
-    NOT     = r'!'
-    LESS    = r'<'
-    AND     = r'&&'
-    ID      = r'[a-zA-Z_][a-zA-Z0-9_]*'
-    NUM  = r'\d+'
+    RBRACE  = r'\}'
+    RBRACK  = r'\]'
+    RPAREN  = r'\)'
+    SCOLON  = r'\;'
+    TIMES   = r'\*'
 
-    # Words reserved
-    ID['class']     = KEYWORD
-    ID['public']    = KEYWORD
-    ID['static']    = KEYWORD
-    ID['void']      = KEYWORD
-    ID['main']      = KEYWORD
-    ID['String']    = KEYWORD
-    ID['extends']   = KEYWORD
-    ID['return']    = KEYWORD
-    ID['if']        = KEYWORD
-    ID['else']      = KEYWORD
-    ID['while']     = KEYWORD
-    ID['true']      = KEYWORD
-    ID['false']     = KEYWORD
-    ID['this']      = KEYWORD
-    ID['new']       = KEYWORD
-    ID['int']       = KEYWORD
-    ID['boolean']   = KEYWORD
-    ID['length']    = KEYWORD
+    # átomos com regras de formação complexa
+    ID	= r'[a-zA-Z_][a-zA-Z0-9_]*'
+    NUM	= r'\d+'
 
-    # guarda numero da linha lida
+    # a cada quebra de linha o identificador do número de linha é incrementado
     @_(r'\n+')
     def ignore_newline(self, t):
         self.lineno += t.value.count('\n')
 
-
-    def t_error(self, t):
-        print('[ %r ]' % (t.value))
+    # imprime a linha e o caractere inválido caso encontre
+    def error(self, t):
+        print('Linha: %d - Caractere ilegal: "%s"' % (self.lineno, t.value[0]))
+        self.index += 1
 
 if __name__ == '__main__':
-    filename = input('arquivo de entrada > ') 
-    # abre para leitura o arquivo informado
-    file = open(filename, 'r')
-    # inicia leitura do arquivo
-    data = file.read()
-
-    #instancia objeto da lib Lex
-    o_libLex = LexerAnalyzer()
-
-    # o_libLex.error = o_libLex.t_error
-
-    # extrai tokens do arquivo
-    for token in o_libLex.tokenize(data):     
-        # imprime [ <número_da_linha>, <átomo_reconhecido>, <lexema_correspondente> ]
-        print('[ %r, %r, %r ]' % (token.lineno, token.type, token.value))
-        
-    #fecha arquivo
+    # solicita ao usuário o nome do arquivo de entrada e abre no modo somente leitura
+    file = open(input('Informe o nome do arquivo de entrada: '), 'r')
+    # quebra o texto do arquivo informado em palavras e imprime conforme o analisador lexico descrito no trabalho
+    for tok in LexerAnalyzer().tokenize(file.read()):
+        if tok.type in LexerAnalyzer().keywords:
+            print('[ %s, KEYWORD, "%s" ]' % (tok.lineno, tok.value))
+        else:
+            print('[ %s, %s, "%s" ]' % (tok.lineno, tok.type, tok.value))
+    # fecha o arquivo de entrada
     file.close()
