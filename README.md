@@ -8,19 +8,19 @@ Desenvolvimento de um Analisador Léxico para a linguagem MiniJava.
 
 - <b>Saída:</b> especificação de como deve ser a saída do analisador léxico.
     - Segue o seguinte padrão estabelecido: <i>[ <número_da_linha>, <átomo_reconhecido>, <lexema_correspondente> ]</i> 
-    - Em caso de caractere ilegal: <i>Linha: <número_da_linha> - Caractere ilegal: <fluxo_correspondente></i
+    - Em caso de caractere ilegal: <i>Linha: <número_da_linha> - Caractere ilegal: <fluxo_correspondente></i>
 
 ## 2. Instalação passo a passo (Linux)
-- Instalando o [python3]
+- Instalação do [python3]
 ```bash
     sudo apt-get update
     sudo apt-get install python3
 ```
-- Instalando o pacote [pip]
+- Instalação do pacote [pip]
 ```bash
     sudo apt-get install python3-pip
 ```
-- Instalando o [sly]
+- Instalação da biblioteca [sly]
 ```bash
     pip3 install sly 
 ```    
