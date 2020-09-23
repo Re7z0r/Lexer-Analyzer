@@ -14,6 +14,7 @@ class Factorial{
         System.out.println(new Fac().ComputeFac(10));
     }
 }
+a + $ = 3;
 
 class Fac {
     public int ComputeFac(int num){
