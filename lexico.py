@@ -69,13 +69,16 @@ class LexerAnalyzer(Lexer):
         self.index += 1
 
 if __name__ == '__main__':
-    # solicita ao usuário o nome do arquivo de entrada e abre no modo somente leitura
-    file = open(input('Informe o nome do arquivo de entrada: '), 'r')
-    # quebra o texto do arquivo informado em palavras e imprime conforme o analisador lexico descrito no trabalho
-    for tok in LexerAnalyzer().tokenize(file.read()):
-        if tok.type in LexerAnalyzer().keywords:
-            print('[ %s, KEYWORD, "%s" ]' % (tok.lineno, tok.value))
-        else:
-            print('[ %s, %s, "%s" ]' % (tok.lineno, tok.type, tok.value))
-    # fecha o arquivo de entrada
-    file.close()
+    try:
+        # solicita ao usuário o nome do arquivo de entrada e abre no modo somente leitura
+        file = open(input('Informe o nome do arquivo de entrada: '), 'r')
+        # quebra o texto do arquivo informado em palavras e imprime conforme o analisador lexico descrito no trabalho
+        for tok in LexerAnalyzer().tokenize(file.read()):
+            if tok.type in LexerAnalyzer().keywords:
+                print('[ %s, KEYWORD, "%s" ]' % (tok.lineno, tok.value))
+            else:
+                print('[ %s, %s, "%s" ]' % (tok.lineno, tok.type, tok.value))
+        # fecha o arquivo de entrada
+        file.close()    
+    except EOFError:
+        pass
