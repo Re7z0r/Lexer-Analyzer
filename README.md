@@ -27,7 +27,7 @@ Desenvolvimento de um Analisador Léxico para a linguagem MiniJava.
 
 ## 3. Execução
 ```bash
-    python3 main.py
+    python3 lexico.py
 ```
 
 
