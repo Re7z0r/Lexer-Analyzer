@@ -8,9 +8,11 @@ Desenvolvimento de um Analisador Léxico para a linguagem MiniJava.
 
 - **Saída:** especificação de como deve ser a saída do analisador léxico.
     - Segue o seguinte padrão estabelecido:
-    *[ <número_da_linha>, <átomo_reconhecido>, <lexema_correspondente> ]*
+    
+        *[ <número_da_linha>, <átomo_reconhecido>, <lexema_correspondente> ]*
     - Em caso de caractere ilegal:
-    *Linha: <número_da_linha> - Caractere ilegal: <fluxo_correspondente>*
+    
+        *Linha: <número_da_linha> - Caractere ilegal: <fluxo_correspondente>*
 
 ## 2. Instalação passo a passo (Linux)
 - Instalação do [python3]
