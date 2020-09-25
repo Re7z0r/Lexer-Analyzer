@@ -1,14 +1,15 @@
+# importa a classe Lexer da biblioteca sly
 from sly import Lexer
 
 class LexerAnalyzer(Lexer):
     # tokens por ORDEM ALFABETICA
     tokens = { AND, BOOLEAN, CLASS, COLON, DOT, ELSE, EQUAL, EXTENDS, FALSE, ID, IF, INT, KEYWORD, LENGTH, 
-        MAIN, NEW, LBRACE, LBRACK, LESS, LPAREN, MINUS,  NEW, NOT, NUM, PLUS, PUBLIC, RBRACK, RETURN, 
-        RBRACE, RPAREN, SCOLON, STATIC, STRING, THIS, TIMES, TRUE, VOID, WHILE, WRITE }
+        MAIN, NEW, LBRACE, LBRACK, LESS, LPAREN, MINUS,  NEW, NOT, NUM, OUT, PLUS, PRINTLN, PUBLIC, RBRACK, RETURN, 
+        RBRACE, RPAREN, SCOLON, STATIC, STRING, SYSTEM, THIS, TIMES, TRUE, VOID, WHILE, WRITE }
 
     # keywords por ORDEM ALFABETICA
-    keywords = { BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, PUBLIC, RETURN, STATIC, 
-        STRING, THIS, TRUE, VOID, WHILE }
+    keywords = { BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, OUT, PRINTLN, PUBLIC, RETURN, STATIC, 
+        STRING, SYSTEM, THIS, TRUE, VOID, WHILE }
 
     # espaço, tabulação, comentário e bloco de comentários ignorados
     ignore = ' \t'
@@ -26,15 +27,17 @@ class LexerAnalyzer(Lexer):
     ID['length']    = LENGTH
     ID['main']      = MAIN
     ID['new']       = NEW
+    ID['out']       = OUT
+    ID['println']   = PRINTLN
     ID['public']    = PUBLIC
     ID['return']    = RETURN
     ID['static']    = STATIC
     ID['String']    = STRING
+    ID['System']    = SYSTEM
     ID['this']      = THIS
     ID['true']      = TRUE
     ID['void']      = VOID
-    ID['while']     = WHILE    
-    WRITE           = r'System\.out\.println'
+    ID['while']     = WHILE
 
     # átomos que representam símbolos da linguagem por ORDEM ALFABETICA
     AND     = r'\&\&'
@@ -72,9 +75,10 @@ if __name__ == '__main__':
     try:
         # solicita ao usuário o nome do arquivo de entrada e abre no modo somente leitura
         file = open(input('Informe o nome do arquivo de entrada: '), 'r')
-        # quebra o texto do arquivo informado em palavras e imprime conforme o analisador lexico descrito no trabalho
+        # tokenize() é um método público da classe Lexer que quebra o texto do arquivo informado em palavras e imprime conforme o analisador lexico implementado
         for tok in LexerAnalyzer().tokenize(file.read()):            
             tipo = tok.type
+            # se o token estiver na lista de keywords, entao recebe uma string informando que é uma keyword
             if tok.type in LexerAnalyzer().keywords:
                 tipo = 'KEYWORD'
             print('[ %s, %s, "%s" ]' % (tok.lineno, tipo, tok.value))
