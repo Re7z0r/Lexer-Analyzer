@@ -1,7 +1,6 @@
 boolean
-{1c=3}
-a + $ = 3
-
+457 12aeDf23
+{ 1c = 3 }
 
 12abc   /
 fi a<b;
