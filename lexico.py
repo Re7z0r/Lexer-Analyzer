@@ -11,8 +11,6 @@ class LexerAnalyzer(Lexer):
     keywords = { BOOLEAN, CLASS, ELSE, EXTENDS, FALSE, IF, INT, LENGTH, MAIN, NEW, OUT, PRINTLN, PUBLIC, RETURN, STATIC, 
         STRING, SYSTEM, THIS, TRUE, VOID, WHILE }
     
-    BADTOKEN = r'[\d+][a-zA-Z0-9_]*'
-
     # espaço, tabulação, comentário e bloco de comentários ignorados
     ignore = ' \t'
     ignore_comment = '\/\/.*'
@@ -59,10 +57,13 @@ class LexerAnalyzer(Lexer):
     SCOLON  = r'\;'
     TIMES   = r'\*'
 
+    # átomos que representam um token malformado
+    BADTOKEN = r'\d+[a-zA-Z_]'
+        
     # átomos com regras de formação complexa
     ID	= r'[a-zA-Z_][a-zA-Z0-9_]*'
-    NUM	= r'\d+'
-        
+    NUM	= r'\d+'    
+
     # imprime a linha e o caractere inválido caso encontre
     def error(self, t):
         if t.type == 'ERROR':
